@@ -1,0 +1,28 @@
+# Zola build output
+/public/
+
+# Cache / temporary build artifacts
+/.zola-cache/
+/zola-cache/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor / IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Node (only if you ever add frontend tooling later)
+node_modules/
+
+# Optional: local environment overrides
+.env
+.env.*
+

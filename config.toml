@@ -1,0 +1,37 @@
+# The URL the site will be built for
+base_url = "https://maxfaber.org"
+theme = "apollo"
+taxonomies = [{ name = "tags" }]
+title = "Max Faber"
+[extra]
+theme = "toggle"
+copyright = "TallCheesecake"
+socials = [
+    { name = "github", url = "https://github.com/TallCheesecake/", icon = "github" },
+]
+menu = [
+    { name = "/posts", url = "/posts", weight = 1 },
+    { name = "/projects", url = "/projects", weight = 2 },
+    { name = "/about", url = "/about", weight = 3 },
+    { name = "/tags", url = "/tags", weight = 4 },
+]
+privacy_policy = "privacy" 
+toc = true
+# See this for more options: https://github.com/not-matthias/apollo/blob/main/config.toml#L14
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+fancy_code = true
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+dynamic_note = true
+# [search]
+# include_title = true
+# include_description = true
+# include_path = true
+# include_content = true
+# index_format = "elasticlunr_json"
+#
+[markdown]
+external_links_target_blank = true
+[markdown.highlighting]
+theme = "material-theme-darker"
