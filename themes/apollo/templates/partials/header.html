@@ -68,11 +68,7 @@
     {% endif %}
 
     {# Favicon #}
-    {% if config.extra.favicon %}
-        <link rel="icon"
-              type="image/png"
-              href="{{ get_url(path=config.extra.favicon) }}" />
-    {% endif %}
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 
     <link href={{ get_url(path="fonts.css") }} rel="stylesheet" />
 

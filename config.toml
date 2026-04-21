@@ -4,6 +4,7 @@ theme = "apollo"
 taxonomies = [{ name = "tags" }]
 title = "Max Faber"
 [extra]
+favicon = "favicon.ico"
 theme = "toggle"
 copyright = "TallCheesecake"
 socials = [
