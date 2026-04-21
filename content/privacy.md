@@ -20,5 +20,5 @@ policy: https://www.cloudflare.com/privacypolicy/
 This data processing is necessary for the secure and reliable operation of the
 website.
 
-If you have questions about this privacy policy or wish to contact me regarding
-your data, you can reach me at: maxim.faber@protonmail.com
+Requests regarding access to or deletion of such data must generally be directed to 
+Cloudflare, as they are the data processor responsible for infrastructure-level logging.
