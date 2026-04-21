@@ -8,6 +8,7 @@ theme = "toggle"
 copyright = "TallCheesecake"
 socials = [
     { name = "github", url = "https://github.com/TallCheesecake/", icon = "github" },
+    { name = "linkedin", url = "https://linkedin.com/in/max-faber-", icon = "linkedin" },
 ]
 menu = [
     { name = "/posts", url = "/posts", weight = 1 },
