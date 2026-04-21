@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://maxfaber.org"
+base_url = "blog-2v3.pages.dev"
 theme = "apollo"
 taxonomies = [{ name = "tags" }]
 title = "Max Faber"
