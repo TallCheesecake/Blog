@@ -21,4 +21,4 @@ This data processing is necessary for the secure and reliable operation of the
 website.
 
 If you have questions about this privacy policy or wish to contact me regarding
-your data, you can reach me at: [your email address].
+your data, you can reach me at: maxim.faber@protonmail.com
