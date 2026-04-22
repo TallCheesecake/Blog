@@ -144,9 +144,10 @@ bitflags! {
         const WARNING = 1 << 8;
         const ERROR = 1 << 12;
     }
-}```
+}
+```
 
-{{ note( header="Note", body="I'm wondering why they cant use a enum?") }}
+{{ note( header="Note", body="I'm wondering why they can't use a enum?") }}
 
 ```rust, linenos
 extern "system" fn debug_callback(
@@ -196,6 +197,7 @@ if VALIDATION_ENABLED {
 
 running the code at this stage yeilds (this is just a snippet):
 
+```default, linenos
  DEBUG vulkan_ex1 > (GENERAL) Inserted device layer "VK_LAYER_KHRONOS_validation" (MYPATH_HEHEH/coding/c/vulkan/1.4.341.1/x86_64/lib/libVkLayer_khronos_validation.so)
  DEBUG vulkan_ex1 > (GENERAL) vkCreateDevice layer callstack setup to:
  DEBUG vulkan_ex1 > (GENERAL)    <Application>
@@ -205,6 +207,7 @@ running the code at this stage yeilds (this is just a snippet):
  DEBUG vulkan_ex1 > (GENERAL)    VK_LAYER_KHRONOS_validation
  DEBUG vulkan_ex1 > (GENERAL)            Type: Explicit
 
+```
 
 ## Physical Devices
 
