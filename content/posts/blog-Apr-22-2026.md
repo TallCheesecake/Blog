@@ -19,16 +19,16 @@ wrong and this is more so for me to review my thoughts than to actually provide
 useful information.
 
 ## Setup
-We are using pretty_logger, anyhow, and winit. The first two are simple
+We are using `pretty_logger`, `anyhow`, and `winit`. The first two are simple
 enough, a logger and an error augmentation crate. The last one is a window
-library. winit is a cross-platform window library. It's pretty standard, with a
-window object exposing handles you can match on, such as DeviceEvent or
-WindowEvent.
+library. `winit` is a cross-platform window library. It's pretty standard, with a
+window object exposing handles you can match on, such as `DeviceEvent` or
+`WindowEvent`.
 
 The run method on the event loop continuously polls events. You pass it a
 closure and can match on the events emitted.
 
-We then define the structs App and AppData. The latter will hold most of the
+We then define the structs `App` and `AppData`. The latter will hold most of the
 Vulkan-related state/configuration data, and the former will handle render
 logic, creation, and cleanup (drop logic) for the Vulkan instance.
 
@@ -50,9 +50,9 @@ Next we handle extensions. Extensions are a way to "add on" features to the
 core Vulkan API. The window system requires certain extensions, and Vulkanalia
 conveniently integrates with this.
 
-The vk_window::get_required_instance_extensions() function returns a 'static
+The `vk_window::get_required_instance_extensions()` function returns a 'static
 slice of extension names. These are then passed to Vulkan as C-style strings
-via .as_ptr(). This feels a bit low-level, but it’s expected since Vulkan
+via `as_ptr()`. This feels a bit low-level, but it’s expected since Vulkan
 itself is a C API.
 
 With the extension pointer array and the application info, we can create an
@@ -71,7 +71,7 @@ instance. For example, on macOS, portability extensions may be required so that
 Vulkan can run on top of Metal via a compatibility layer.
 
 By default, VK instances do not enumerate devices that require portability
-layers. These flags allow functions like enumerate_physical_devices to include
+layers. These flags allow functions like `enumerate_physical_devices` to include
 such devices.
 
 ```rust, linenos
@@ -120,7 +120,7 @@ let layers = if VALIDATION_ENABLED {
     Vec::new()
 };
 ```
-The layer VK_LAYER_KHRONOS_validation contains a bunch of useful debugging
+The layer `VK_LAYER_KHRONOS_validation` contains a bunch of useful debugging
 layers. Here we ask the entry (which is pretty much the loader thing mentioned
 earlier, I think) to give us the available layers and we put them into a
 HashSet.
@@ -131,8 +131,8 @@ Instance.
 At this point, we also need to set up logging. Layers are all well and good,
 but we need a way to actually see what is going on.
 
-The validation layer emits something called DebugUtilsMessageSeverityFlagsEXT.
-This is essentially a bitmask over VkDebugUtilsMessageSeverityFlagBitsEXT.
+The validation layer emits something called `DebugUtilsMessageSeverityFlagsEXT`.
+This is essentially a bitmask over `VkDebugUtilsMessageSeverityFlagBitsEXT`.
 ``` rust, linenos
 bitflags! {
     /// <https://www.khronos.org/registry/vulkan/specs/latest/man/html/VkDebugUtilsMessageSeverityFlagsEXT.html>
@@ -175,7 +175,7 @@ Here we can just compare against the integer values and log out the data
 emitted from the callback function.
 
 We will store this layer’s messenger in the App struct, and the
-vk::DebugUtilsMessengerEXT type will be constructed using the builder pattern,
+`vk::DebugUtilsMessengerEXT` type will be constructed using the builder pattern,
 with the callback passed as one of its arguments. When an event of interest
 occurs, the message is passed to the callback, which will emit it to stdout.
 
