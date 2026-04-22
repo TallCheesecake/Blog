@@ -164,6 +164,7 @@ if VALIDATION_ENABLED {
     info = info.push_next(&mut debug_info);
 }
 ```
+
 running the code at this stage yeilds (this is just a snippet):
 
  DEBUG vulkan_ex1 > (GENERAL) Inserted device layer "VK_LAYER_KHRONOS_validation" (MYPATH_HEHEH/coding/c/vulkan/1.4.341.1/x86_64/lib/libVkLayer_khronos_validation.so)
@@ -178,7 +179,31 @@ running the code at this stage yeilds (this is just a snippet):
 
 ## Physical Devices
 
+When we talk about physical devices we refer to the actual GPU in the computer. We will need to check the type and features of this GPU with:
 
+```rust, linenos
+unsafe fn check_physical_device(
+    instance: &Instance,
+    data: &AppData,
+    physical_device: vk::PhysicalDevice,
+) -> Result<()> {
+    let properties = instance.get_physical_device_properties(physical_device);
+    if properties.device_type != vk::PhysicalDeviceType::DISCRETE_GPU {
+        return Err(anyhow!(SuitabilityError("Only discrete GPUs are supported.")));
+    }
+
+    let features = instance.get_physical_device_features(physical_device);
+    if features.geometry_shader != vk::TRUE {
+        return Err(anyhow!(SuitabilityError("Missing geometry shader support.")));
+    }
+
+    Ok(())
+}
+}
+```
+queues are features of a sort supported by the device. Each queue can do a set of processes like memory or compute. The graphics queue (I'm pretty sure) supports all
+available processes. the `get_physical_device_queue_family_properties` funciton will give us info on the available queues for our device. At the end we will get
+out a u32 that represents the QueueFamilyIndicies.
 
 
 
